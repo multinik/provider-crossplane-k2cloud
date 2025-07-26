@@ -9,7 +9,6 @@ import (
 	_ "embed"
 
 	ujconfig "github.com/crossplane/upjet/pkg/config"
-
 )
 
 const (
