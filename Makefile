@@ -13,8 +13,8 @@ TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAF
 export TERRAFORM_PROVIDER_SOURCE ?= C2Devel/rockitcloud
 export TERRAFORM_PROVIDER_REPO ?= https://github.com/C2Devel/terraform-provider-rockitcloud
 export TERRAFORM_PROVIDER_VERSION ?= 25.1.1
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-rockitcloud_25.1.1_linux_amd64.zip
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= https://github.com/C2Devel/terraform-provider-rockitcloud/releases/download/$(TERRAFORM_PROVIDER_VERSION)/$(TERRAFORM_PROVIDER_DOWNLOAD_NAME)
+export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-rockitcloud
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= https://github.com/C2Devel/terraform-provider-rockitcloud/releases/download/$(TERRAFORM_PROVIDER_VERSION)
 export TERRAFORM_NATIVE_PROVIDER_BINARY ?= rockitcloud_v25.1.1
 export TERRAFORM_DOCS_PATH ?= docs/c2
 
