@@ -10,12 +10,11 @@ import (
 
 	ujconfig "github.com/crossplane/upjet/pkg/config"
 
-	"github.com/upbound/upjet-provider-template/config/null"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/upbound/upjet-provider-template"
+	resourcePrefix = "crossplane-k2cloud"
+	modulePath     = "github.com/multinik/provider-crossplane-k2cloud"
 )
 
 //go:embed schema.json
@@ -27,8 +26,9 @@ var providerMetadata string
 // GetProvider returns provider configuration
 func GetProvider() *ujconfig.Provider {
 	pc := ujconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
-		ujconfig.WithRootGroup("template.upbound.io"),
-		ujconfig.WithIncludeList(ExternalNameConfigured()),
+		ujconfig.WithRootGroup("k2.cloud"),
+		// ujconfig.WithIncludeList(ExternalNameConfigured()),
+		ujconfig.WithSkipList([]string{"aws_network_interface"}),
 		ujconfig.WithFeaturesPackage("internal/features"),
 		ujconfig.WithDefaultResourceOptions(
 			ExternalNameConfigurations(),
@@ -36,7 +36,6 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
 	} {
 		configure(pc)
 	}

@@ -1,4 +1,4 @@
-module github.com/upbound/upjet-provider-template
+module github.com/multinik/provider-crossplane-k2cloud
 
 go 1.21
 

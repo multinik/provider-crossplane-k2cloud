@@ -10,17 +10,73 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/upbound/upjet-provider-template/apis/null/v1alpha1"
-	v1alpha1apis "github.com/upbound/upjet-provider-template/apis/v1alpha1"
-	v1beta1 "github.com/upbound/upjet-provider-template/apis/v1beta1"
+	v1alpha1 "github.com/multinik/provider-crossplane-k2cloud/apis/ami/v1alpha1"
+	v1alpha1autoscaling "github.com/multinik/provider-crossplane-k2cloud/apis/autoscaling/v1alpha1"
+	v1alpha1aws "github.com/multinik/provider-crossplane-k2cloud/apis/aws/v1alpha1"
+	v1alpha1backup "github.com/multinik/provider-crossplane-k2cloud/apis/backup/v1alpha1"
+	v1alpha1cloudwatch "github.com/multinik/provider-crossplane-k2cloud/apis/cloudwatch/v1alpha1"
+	v1alpha1customer "github.com/multinik/provider-crossplane-k2cloud/apis/customer/v1alpha1"
+	v1alpha1default "github.com/multinik/provider-crossplane-k2cloud/apis/default/v1alpha1"
+	v1alpha1dx "github.com/multinik/provider-crossplane-k2cloud/apis/dx/v1alpha1"
+	v1alpha1ebs "github.com/multinik/provider-crossplane-k2cloud/apis/ebs/v1alpha1"
+	v1alpha1ec2 "github.com/multinik/provider-crossplane-k2cloud/apis/ec2/v1alpha1"
+	v1alpha1eip "github.com/multinik/provider-crossplane-k2cloud/apis/eip/v1alpha1"
+	v1alpha1eks "github.com/multinik/provider-crossplane-k2cloud/apis/eks/v1alpha1"
+	v1alpha1iam "github.com/multinik/provider-crossplane-k2cloud/apis/iam/v1alpha1"
+	v1alpha1internet "github.com/multinik/provider-crossplane-k2cloud/apis/internet/v1alpha1"
+	v1alpha1key "github.com/multinik/provider-crossplane-k2cloud/apis/key/v1alpha1"
+	v1alpha1launch "github.com/multinik/provider-crossplane-k2cloud/apis/launch/v1alpha1"
+	v1alpha1lb "github.com/multinik/provider-crossplane-k2cloud/apis/lb/v1alpha1"
+	v1alpha1main "github.com/multinik/provider-crossplane-k2cloud/apis/main/v1alpha1"
+	v1alpha1network "github.com/multinik/provider-crossplane-k2cloud/apis/network/v1alpha1"
+	v1alpha1paas "github.com/multinik/provider-crossplane-k2cloud/apis/paas/v1alpha1"
+	v1alpha1placement "github.com/multinik/provider-crossplane-k2cloud/apis/placement/v1alpha1"
+	v1alpha1route "github.com/multinik/provider-crossplane-k2cloud/apis/route/v1alpha1"
+	v1alpha1route53 "github.com/multinik/provider-crossplane-k2cloud/apis/route53/v1alpha1"
+	v1alpha1s3 "github.com/multinik/provider-crossplane-k2cloud/apis/s3/v1alpha1"
+	v1alpha1security "github.com/multinik/provider-crossplane-k2cloud/apis/security/v1alpha1"
+	v1alpha1snapshot "github.com/multinik/provider-crossplane-k2cloud/apis/snapshot/v1alpha1"
+	v1alpha1apis "github.com/multinik/provider-crossplane-k2cloud/apis/v1alpha1"
+	v1beta1 "github.com/multinik/provider-crossplane-k2cloud/apis/v1beta1"
+	v1alpha1volume "github.com/multinik/provider-crossplane-k2cloud/apis/volume/v1alpha1"
+	v1alpha1vpc "github.com/multinik/provider-crossplane-k2cloud/apis/vpc/v1alpha1"
+	v1alpha1vpn "github.com/multinik/provider-crossplane-k2cloud/apis/vpn/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1autoscaling.SchemeBuilder.AddToScheme,
+		v1alpha1aws.SchemeBuilder.AddToScheme,
+		v1alpha1backup.SchemeBuilder.AddToScheme,
+		v1alpha1cloudwatch.SchemeBuilder.AddToScheme,
+		v1alpha1customer.SchemeBuilder.AddToScheme,
+		v1alpha1default.SchemeBuilder.AddToScheme,
+		v1alpha1dx.SchemeBuilder.AddToScheme,
+		v1alpha1ebs.SchemeBuilder.AddToScheme,
+		v1alpha1ec2.SchemeBuilder.AddToScheme,
+		v1alpha1eip.SchemeBuilder.AddToScheme,
+		v1alpha1eks.SchemeBuilder.AddToScheme,
+		v1alpha1iam.SchemeBuilder.AddToScheme,
+		v1alpha1internet.SchemeBuilder.AddToScheme,
+		v1alpha1key.SchemeBuilder.AddToScheme,
+		v1alpha1launch.SchemeBuilder.AddToScheme,
+		v1alpha1lb.SchemeBuilder.AddToScheme,
+		v1alpha1main.SchemeBuilder.AddToScheme,
+		v1alpha1network.SchemeBuilder.AddToScheme,
+		v1alpha1paas.SchemeBuilder.AddToScheme,
+		v1alpha1placement.SchemeBuilder.AddToScheme,
+		v1alpha1route.SchemeBuilder.AddToScheme,
+		v1alpha1route53.SchemeBuilder.AddToScheme,
+		v1alpha1s3.SchemeBuilder.AddToScheme,
+		v1alpha1security.SchemeBuilder.AddToScheme,
+		v1alpha1snapshot.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,
+		v1alpha1volume.SchemeBuilder.AddToScheme,
+		v1alpha1vpc.SchemeBuilder.AddToScheme,
+		v1alpha1vpn.SchemeBuilder.AddToScheme,
 	)
 }
 
