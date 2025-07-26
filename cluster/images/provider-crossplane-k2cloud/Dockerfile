@@ -35,6 +35,8 @@ RUN unzip /tmp/terraform_${TERRAFORM_VERSION}_${TARGETOS}_${TARGETARCH}.zip -d /
   && rm /tmp/terraform_${TERRAFORM_VERSION}_${TARGETOS}_${TARGETARCH}.zip \
   && unzip /tmp/${TERRAFORM_PROVIDER_DOWNLOAD_NAME}_${TERRAFORM_PROVIDER_VERSION}_${TARGETOS}_${TARGETARCH}.zip -d ${PLUGIN_DIR} \
   && chmod +x ${PLUGIN_DIR}/* \
+  && ln -s ${PLUGIN_DIR}/${TERRAFORM_NATIVE_PROVIDER_BINARY} \
+          ${PLUGIN_DIR}/terraform-provider-aws_v6.5.0 \
   && rm /tmp/${TERRAFORM_PROVIDER_DOWNLOAD_NAME}_${TERRAFORM_PROVIDER_VERSION}_${TARGETOS}_${TARGETARCH}.zip \
   && chown -R ${USER_ID}:${USER_ID} /terraform
 # End of - Setup Terraform environment
