@@ -19,8 +19,12 @@ const (
 //go:embed schema.json
 var providerSchema string
 
-//go:embed provider-metadata.yaml
-var providerMetadata string
+
+var providerMetadata = `
+provider:
+  name: aws
+  version: 6.5.0
+`
 
 // GetProvider returns provider configuration
 func GetProvider() *ujconfig.Provider {
