@@ -7,6 +7,8 @@ package clients
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"strings"
 
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 	"github.com/pkg/errors"
@@ -65,11 +67,25 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		ps.Configuration = map[string]any{
 			"access_key": creds["access_key"].(string),
 			"secret_key": creds["secret_key"].(string),
+			"region":     creds["region"].(string),
 			"endpoint":   creds["endpoint"].(string),
 			"endpoints": []any{
 				creds["endpoints"].(map[string]any),
 			},
 		}
+		// Generate AWS_<SERVICE>_ENDPOINT env vars from endpoints map
+		if eps, ok := creds["endpoints"].(map[string]any); ok {
+			for svc, url := range eps {
+				envVar := fmt.Sprintf("AWS_%s_ENDPOINT=%s", strings.ToUpper(svc), url.(string))
+				ps.Environment = append(ps.Environment, envVar)
+			}
+		}
+        // Propagate AWS credentials and default region as env vars
+        ps.Environment = append(ps.Environment,
+            fmt.Sprintf("AWS_ACCESS_KEY_ID=%s", creds["access_key"].(string)),
+            fmt.Sprintf("AWS_SECRET_ACCESS_KEY=%s", creds["secret_key"].(string)),
+            fmt.Sprintf("AWS_REGION=%s", creds["region"].(string)), // ensure 'region' key exists in creds
+        )
 		return ps, nil
 	}
 }
